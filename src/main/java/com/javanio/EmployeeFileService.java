@@ -19,7 +19,14 @@ public class EmployeeFileService {
 		try {
 			Files.write(Paths.get(PAYROLL_FILE_NAME), employeeBuffer.toString().getBytes());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void printData() {
+		try {
+			Files.lines(new File(PAYROLL_FILE_NAME).toPath()).forEach(System.out::println);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

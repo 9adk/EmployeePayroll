@@ -40,6 +40,12 @@ public class EmployeePayrollService {
 		employeeList.add(new Employee(id, name, salary));
 	}
 
+	public void printData(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO)) {
+			new EmployeeFileService().printData();
+		}
+	}
+
 	public long countEntries(IOService ioService) {
 		long entries = 0;
 		if (ioService.equals(IOService.FILE_IO)) {
